@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="container">
+            <div id="button-container">
+                <label for="name">Name</label><input name="name" type="text">
+                <label for="age">Age</label><input name="age" type="text">
+                <label for="id">Id</label><input name="id" type="text">
+                <button>append()</button>
+                <button>insertBefore()</button>
+                <button>inserAdjacentElement()</button>
+                <button>replaceChild()</button>
+                <button>removeChild()</button>
+                <button>remove()</button>
+            </div>
+            <div id="table-container">
+            <table>
+                <thead>
+                    <th>
+                        <tr>
+                            <td>Name:</td>
+                            <td>Age:</td>
+                            <td>Id</td>
+                            <td>Action:</td>
+                            <td>Button</td>
+                        </tr>
+                    </th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aqib</td>
+                        <td>21</td>
+                        <td>5545</td>
+                        <td><select name="drop" id="drop">
+                        <option value="delete">delete</option>
+                        <option value="edit">Edit</option>
+                        <option value="replace">replace</option>
+                        <option value="change-bg">change bg</option>    
+                        </select></td>
+                        <td><button>Ok!</button></td>
+                    </tr>
+                   <!--  <tr>
+                        <td>0</td>
+                        <td>Test Name</td>
+                        <td>Age 1</td>
+                        <td>id 011</td>
+                        <td><button>Action</button></td>
+                    </tr> -->
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
