@@ -2,68 +2,73 @@
 // const buttonContainer = document.getElementById('button-container');
 // console.log(tableBody);
 // 
-
+let val1,val2,val3;
 let counter = 0;
-let table = document.querySelector("table");
+let table = document.querySelector("tbody");
 let buttonContainer=  document.getElementById("button-container");
 
 
 table.addEventListener('click',function(e){
+    // console.log(e.target.parentElement.previousElementSibling.children[0].value);
     // console.log(e.target.tagName);
     if(e.target.tagName=="BUTTON"){
-        console.log(e.target.parentElement.previousElementSibling.children[0].value);
-    switch(true){
-        case e.target.parentElement.previousElementSibling.children[0].value == "delete":{
-            console.log("Inside Change Bg");
+        // console.log(e.target.parentElement.previousElementSibling.children[0].value);
+            if (e.target.parentElement.previousElementSibling.children[0].value == "delete"){
+                console.log("Inside delete");
 
-            // table.removeChild(e.target.parentElement.parentElement);
-            e.target.parentElement.parentElement.remove();
-        }
-        case e.target.parentElement.previousElementSibling.children[0].value == "edit":{
-            console.log("Inside Change Bg");
+                // table.removeChild(e.target.parentElement.parentElement);
+                e.target.parentElement.parentElement.remove();
+        
+            }else if(e.target.parentElement.previousElementSibling.children[0].value == "edit"){
+                
+                console.log("Inside edit");
+                    val1 = e.target.parentElement.parentElement.children[0].innerText;
+                    val2 = e.target.parentElement.parentElement.children[1].innerText;
+                    val3 = e.target.parentElement.parentElement.children[2].innerText;
+                if(counter==0){
+                    for(let i=0;i<e.target.parentElement.parentElement.children.length-2;i++){
+                        e.target.parentElement.parentElement.children[i].innerHTML=`<input style="width:3rem; margin:0;" type="text">`;
+                }
+                // e.target.parentElement.parentElement.children[1].innerHTML=`<input style="width:3rem; margin:0;" type="text">`;
+                // e.target.parentElement.parentElement.children[2].innerHTML=`<input style="width:3rem; margin:0;" type="text">`;
+                    counter = 1;
+                }else if(counter==1){
+        
+                    for(let i=0;i<e.target.parentElement.parentElement.children.length-2;i++){
+                        e.target.parentElement.parentElement.children[i].innerHTML=`<td>Name:</td>`;
+                }
+                    console.log(val1);
+                    e.target.parentElement.parentElement.children[0].innerText = val1;
+                    e.target.parentElement.parentElement.children[1].innerText = val2;
+                    e.target.parentElement.parentElement.children[2].innerText = val3;
+                    counter=0;
 
-            // console.log("inside edit");
-            // alert('inside edit');
+                }
 
-            // table.removeChild(e.target.parentElement.parentElement);
-
-            e.target.parentElement.parentElement.children[0].innerHTML=`<input style="width:3rem; margin:0;" type="text">`;
-            e.target.parentElement.parentElement.children[1].innerHTML=`<input style="width:3rem; margin:0;" type="text">`;
-            e.target.parentElement.parentElement.children[2].innerHTML=`<input style="width:3rem; margin:0;" type="text">`;
-
-            console.log(e.target.parentElement.parentElement.children[2].children.value);
-
-            
-
-            return;
-        }case e.target.parentElement.previousElementSibling.children[0].value == "replace":{
-            console.log("Inside Change Bg");
+            }else if(e.target.parentElement.previousElementSibling.children[0].value == "replace"){
+                console.log("Inside replace");
 
            
-            // console.log("inside replace");
-            // alert('inside replace');
+                // console.log("inside replace");
+                // alert('inside replace');
 
-            // table.removeChild(e.target.parentElement.parentElement);
-            // e.target.parentElement.parentElement.remove();
+                // table.removeChild(e.target.parentElement.parentElement);
+                // e.target.parentElement.parentElement.remove();
 
-        }case e.target.parentElement.previousElementSibling.children[0].value == "change-bg":{
-            // alert("inside bg");
-            console.log("Inside Change Bg");
-            for(let i = 0 ; i< e.target.parentElement.parentElement.children.length-1;i++){
-            e.target.parentElement.parentElement.children[i].style.backgroundColor= "green";
+            }else if(e.target.parentElement.previousElementSibling.children[0].value == "change bg"){
+                // alert("inside bg");
+                console.log("Inside Change Bg");
+                for(let i = 0 ; i< e.target.parentElement.parentElement.children.length-1;i++){
+                e.target.parentElement.parentElement.children[i].style.backgroundColor= "green";
         }
             // e.target.parentElement.parentElement.children.style.backgroundColor="green";
             // console.log("inside change-bg");
             // alert('inside change-bg');
             // table.removeChild(e.target.parentElement.parentElement);
             // e.target.parentElement.parentElement.remove();
-        }
-    }
+        }else{alert();}
 
-}else{
-    // alert("alertButton");
-   
-}
+     } else{}  // alert("alertButton");   
 });
 buttonContainer.addEventListener('click',function(e){
     // console.log(buttonContainer.children);
